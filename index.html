@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="jquery-2.1.3.min.js"></script>
+  <script src="node_modules/vis/dist/vis.js"></script>
+  <script src="matrix-vis.js"></script>
+  <link href="node_modules/vis/dist/vis.css" rel="stylesheet" type="text/css" />
+  <link href="index.css" rel="stylesheet" type="text/css" />
+</head>
+<body onload="init();">
+    <div>
+    Connect to the event stream to begin populating the graph with events. This will perform an initialSync to extract some events
+    for the given room, then add new events as they come down (if live update is enabled). You can also scrollback to get older events.
+    </div>
+    <br />
+    <form id="matrixInfo">
+        <input type="text" placeholder="http://localhost:8008" id="inputUrl" class="infoBox"/>
+        <input type="text" placeholder="access_token" id="inputToken" class="infoBox"/>
+        <input type="text" placeholder="!roomid:domain" id="inputRoomId" class="infoBox"/>
+        <div>
+        <label>
+            <input type="checkbox" name="stream" id="inputStreaming" />
+            Live update
+        </label>
+        </div>
+        <input type="button" value="Connect" id="connectButton" />
+    </form>
+    <br />
+    <input type="button" value="Scrollback" id="scrollbackButton" />
+    <p id="eventInfo" />
+    <div id="eventGraph"></div>
+    
+</body>
+</html>
