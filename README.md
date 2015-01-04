@@ -23,5 +23,8 @@ Assumptions:
      ]
      ```
     
+    As of Synapse 0.6, this is not supported without modifying the source code. Specifically,
+    comment out synapse/events/utils.py:126 ``del d["prev_events"]``
+    
  - Event IDs are formatted as ``blob:domain`` (for colouring nodes based on domain).
 
