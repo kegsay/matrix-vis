@@ -1,6 +1,6 @@
 This script visualises the graph formed by Matrix events in a room.
 
-![Example](https://raw.githubusercontent.com/Kegsay/matrix-vis/master/example.jpg)
+![Example](https://raw.githubusercontent.com/Kegsay/matrix-vis/master/federation.png)
 
 Features:
  - Displays the event graph for a room visually.
