@@ -27,7 +27,7 @@ function init() {
 };
 
 function initialSync() {
-    var endpoint = url + "/_matrix/client/api/v1/initialSync?access_token=$token&limit=5";
+    var endpoint = url + "/_matrix/client/api/v1/initialSync?access_token=$token&limit=5&raw=yep";
     endpoint = endpoint.replace("$token", token);
     $.getJSON(endpoint, function(data) {
         streamFrom = data.end;
@@ -53,7 +53,7 @@ function initialSync() {
 };
 
 function longpollEventStream() {
-    var endpoint = url + "/_matrix/client/api/v1/events?access_token=$token&from=$from";
+    var endpoint = url + "/_matrix/client/api/v1/events?access_token=$token&from=$from&raw=yep";
     endpoint = endpoint.replace("$token", token);
     endpoint = endpoint.replace("$from", streamFrom);
     $.getJSON(endpoint, function(data) {
@@ -132,7 +132,7 @@ function addEvent(event) {
 };
 
 function scrollback() {
-    var endpoint = url + "/_matrix/client/api/v1/rooms/$roomid/messages?access_token=$token&from=$from&dir=b&limit=5";
+    var endpoint = url + "/_matrix/client/api/v1/rooms/$roomid/messages?access_token=$token&from=$from&dir=b&limit=5&raw=yep";
     endpoint = endpoint.replace("$token", token);
     endpoint = endpoint.replace("$from", scrollbackFrom);
     endpoint = endpoint.replace("$roomid", roomId);
