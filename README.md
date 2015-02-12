@@ -17,16 +17,5 @@ Usage:
  - Visit index.html and enter in your information.
   
 Assumptions:
- - The target home server returns a ``prev_events`` key which looks like:
- 
-     ```
-     prev_events: [
-       [ event_id, { sha256: "hash" } ]
-     ]
-     ```
-    
-    As of Synapse 0.6, this is not supported without modifying the source code. Specifically,
-    comment out synapse/events/utils.py:126 ``del d["prev_events"]``
-    
  - Event IDs are formatted as ``blob:domain`` (for colouring nodes based on domain).
 
