@@ -1,6 +1,7 @@
 var nodes = null;
 var edges = null;
 var network = null;
+var hiddenNodes = {};
 
 var url = null;
 var token = null;
@@ -115,6 +116,9 @@ function initGraph() {
 
 function collapseNodes() {
     console.log("Collapsing nodes...");
+    // network.nodes => { "eventid": Node, ... }
+    // Node.edges => [Edge, Edge] (for the middle node in NODE--->NODE--->NODE)
+    // Edge => from=Node, to=Node, fromId=event_id, toId=event_id
 };
 
 function addEvent(event) {
