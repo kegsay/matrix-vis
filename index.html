@@ -17,10 +17,17 @@
         <input type="text" placeholder="http://localhost:8008" id="inputUrl" class="infoBox"/>
         <input type="text" placeholder="access_token" id="inputToken" class="infoBox"/>
         <input type="text" placeholder="!roomid:domain" id="inputRoomId" class="infoBox"/>
+        <input type="number" step="1" value="5" id="stepSize" class="infoBox"/>
         <div>
         <label>
             <input type="checkbox" name="stream" id="inputStreaming" />
             Live update
+        </label>
+        </div>
+        <div>
+        <label>
+            <input type="checkbox" name="collapse" checked="yes" id="collapseEvents" />
+            Collapse events
         </label>
         </div>
         <input type="button" value="Connect" id="connectButton" />
