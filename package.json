@@ -8,7 +8,7 @@
    "scripts": {
      "build": "babel src -d lib"
    }, 
- "devDependencies": { "babel-cli": "^6.0.0"},
+ "devDependencies": { "babel-cli": "^6.0.0" ,"vis":"0.x.x","jquery":"0.x.x"},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
