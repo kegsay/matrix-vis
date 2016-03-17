@@ -1,0 +1,32 @@
+{
+  "name": "matrix-vis",
+  "version": "1.0.0",
+  "description": "Initial package for matrix-vis",
+  "main": "matrix-vis.js",
+  "dependencies": {
+    "babel-cli": "^6.6.5",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "jquery": "^2.2.1",
+    "vis": "^4.15.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmohammedibrahim/matrix-vis.git"
+  },
+  "keywords": [
+    "vis",
+    "matrix"
+  ],
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/vmohammedibrahim/matrix-vis/issues"
+  },
+  "homepage": "https://github.com/vmohammedibrahim/matrix-vis#readme"
+}
