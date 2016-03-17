@@ -15,11 +15,11 @@ var scrollbackFrom = null;
 
 
 //new require()
-var jquery= require("jquery");
+var $= require("jquery");
 var vis= require("vis");
 //
 
-function init() {
+window.init = function () {
     initGraph();
     
     $("#connectButton").on("click", function() {
