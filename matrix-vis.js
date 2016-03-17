@@ -14,10 +14,9 @@ var streamFrom = null;
 var scrollbackFrom = null;
 
 
-//new require()
+
 var $= require("jquery");
 var vis= require("vis");
-//
 
 window.init = function () {
     initGraph();
