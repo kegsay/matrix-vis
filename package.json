@@ -1,8 +1,7 @@
 {
-  "name": "matrix-vis",
+  "name": "A Matrix visualisation tool",
   "version": "1.0.0",
-  "description": "Initial package for matrix-vis",
-  "main": "matrix-vis.js",
+  "description": "A Matrix visualisation tool",
   "dependencies": {
     "babel-cli": "^6.6.5"
   },
@@ -15,16 +14,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vmohammedibrahim/matrix-vis.git"
+    "url": "https://github.com/Kegsay/matrix-vis"
   },
   "keywords": [
-    "vis",
+    "matrix.org",
     "matrix"
   ],
   
   "license": "Apache 2.0",
   "bugs": {
-    "url": "https://github.com/vmohammedibrahim/matrix-vis/issues"
+    "url": "https://github.com/Kegsay/matrix-vis/issues"
   },
-  "homepage": "https://github.com/vmohammedibrahim/matrix-vis#readme"
+  "homepage": "https://github.com/Kegsay/matrix-vis#readme"
 }
