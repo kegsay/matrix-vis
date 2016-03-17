@@ -13,7 +13,11 @@ var collapseEvents = true;
 var streamFrom = null;
 var scrollbackFrom = null;
 
+
+//new require()
 var jquery= require("jquery");
+var vis= require("vis");
+//
 
 function init() {
     initGraph();
