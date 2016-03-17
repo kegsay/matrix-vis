@@ -1,5 +1,5 @@
 {
-  "name": "A Matrix visualisation tool",
+  "name": "matrix.vis",
   "version": "1.0.0",
   "description": "A Matrix visualisation tool",
   "dependencies": {
