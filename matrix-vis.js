@@ -13,6 +13,8 @@ var collapseEvents = true;
 var streamFrom = null;
 var scrollbackFrom = null;
 
+var jquery= require("jquery");
+
 function init() {
     initGraph();
     
