@@ -12,8 +12,10 @@ var collapseEvents = true;
 
 var streamFrom = null;
 var scrollbackFrom = null;
+var $ = require("jquery");
+var vis=require("vis");
 
-function init() {
+window.init=function() {
     initGraph();
     
     $("#connectButton").on("click", function() {
