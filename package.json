@@ -8,7 +8,8 @@
     "vis": "^4.15.1"
   },
   "scripts": {
-     "build": "babel src -d lib"
+     "build": "babel src -d lib",
+      "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "babel-cli": "^6.0.0",
