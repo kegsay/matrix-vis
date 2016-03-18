@@ -8,7 +8,7 @@
     "vis": "^4.15.1"
   },
   "scripts": {
-     "build": "browserify matrix-vis.js -t babelify --outfile bundle.jsc",
+     "build": "browserify matrix-vis.js -t babelify --outfile bundle.js",
       "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
