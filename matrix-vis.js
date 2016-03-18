@@ -1,7 +1,7 @@
 var nodes = null;
 var edges = null;
 var network = null;
-var hiddenNodes = {};
+
 
 var url = null;
 var token = null;
@@ -17,8 +17,7 @@ var vis=require("vis");
 
 window.init=function() {
     initGraph();
-    
-    $("#connectButton").on("click", function() {
+     $("#connectButton").on("click", function() {
         url = $("#inputUrl").val();
         token = $("#inputToken").val();
         roomId = $("#inputRoomId").val();
@@ -27,14 +26,15 @@ window.init=function() {
         collapseEvents = $("#collapseEvents").is(":checked");
         initialSync();
     });
-    
     $("#scrollbackButton").on("click", function() {
         scrollback();
     });
-};
+}
 
 function initialSync() {
-    var endpoint = url + "/_matrix/client/api/v1/initialSync?access_token=$token&limit=$stepSize&raw=yep";
+    var urlp;
+    urlp="/_matrix/client/api/v1/initialSync?access_token=$token&limit=$stepSize&raw=yep";
+    var endpoint=url+urlp;
     endpoint = endpoint.replace("$token", token);
     endpoint = endpoint.replace("$stepSize", stepSize);
     $.getJSON(endpoint, function(data) {
@@ -43,7 +43,7 @@ function initialSync() {
             var room = data.rooms[i];
             if (room.room_id === roomId) {
                 // add new events to graph
-                console.log("Adding "+room.messages.chunk.length+" new events to the graph");
+            console.log("Adding "+room.messages.chunk.length+" new events to the graph");
                 for (var j=0; j<room.messages.chunk.length; ++j) {
                     addEvent(room.messages.chunk[j]);
                 }
@@ -61,10 +61,11 @@ function initialSync() {
     }).fail(function(err) {
         console.error("Failed to do initial sync: "+JSON.stringify(err));
     });
-};
-
+}
 function longpollEventStream() {
-    var endpoint = url + "/_matrix/client/api/v1/events?access_token=$token&from=$from&raw=yep";
+    var urlp;
+    urlp="/_matrix/client/api/v1/events?access_token=$token&from=$from&raw=yep";
+    var endpoint = url + urlp ;
     endpoint = endpoint.replace("$token", token);
     endpoint = endpoint.replace("$from", streamFrom);
     $.getJSON(endpoint, function(data) {
@@ -83,12 +84,11 @@ function longpollEventStream() {
     }).fail(function(err) {
         setTimeout(longpollEventStream, 5000);
     });
-};
+}
 
 function initGraph() {
     nodes = new vis.DataSet();
     edges = new vis.DataSet();
-    
     // create a network
     var container = document.getElementById('eventGraph');
     var data = {
@@ -108,20 +108,19 @@ function initGraph() {
         if (params.nodes.length === 1) {
             text = JSON.stringify(nodes.get(params.nodes[0]).blob, undefined, 2);
         }
-    
         document.getElementById('eventInfo').innerHTML = text;
     });
     network.on("resize", function(params) {
-        console.log(params.width,params.height);
+        console.log(params.width, params.height);
     });
-};
+}
 
 function collapseNodes() {
     console.log("Collapsing nodes...");
     // network.nodes => { "eventid": Node, ... }
     // Node.edges => [Edge, Edge] (for the middle node in NODE--->NODE--->NODE)
     // Edge => from=Node, to=Node, fromId=event_id, toId=event_id
-};
+}
 
 function addEvent(event) {
     try {
@@ -148,10 +147,13 @@ function addEvent(event) {
     catch (err) {
         console.error("Failed to addEvent: "+err);
     }
-};
+}
 
 function scrollback() {
-    var endpoint = url + "/_matrix/client/api/v1/rooms/$roomid/messages?access_token=$token&from=$from&dir=b&limit=$stepSize&raw=yep";
+    var urlp1, urlp2;
+    urlp1="/_matrix/client/api/v1/rooms/$roomid/messages?";
+    urlp2="access_token=$token&from=$from&dir=b&limit=$stepSize&raw=yep";
+    var endpoint = url + urlp1 + urlp2;
     endpoint = endpoint.replace("$token", token);
     endpoint = endpoint.replace("$from", scrollbackFrom);
     endpoint = endpoint.replace("$roomid", roomId);
@@ -174,4 +176,4 @@ function scrollback() {
     }).fail(function(err) {
         console.error("Failed to perform scrollback: "+JSON.stringify(err));
     });
-};
+}
