@@ -105,11 +105,19 @@ function initGraph() {
     network = new vis.Network(container, data, options);
     // add event listeners
     network.on('select', function(params) {
-        var text = "";
+        var Type = " ";
+        var Sender = " ";
+        var m = " ";
         if (params.nodes.length === 1) {
-            text = JSON.stringify(nodes.get(params.nodes[0]).blob, undefined, 2);
+            Type=JSON.stringify(nodes.get(params.nodes[0]).blob.type, undefined, 2);
+            Sender=JSON.stringify(nodes.get(params.nodes[0]).blob.sender, undefined, 2);
+            m=JSON.stringify(nodes.get(params.nodes[0]).blob.content.body, undefined, 2);
+            t1="Event Type : "+Type;
+            t2="Sender : "+Sender;
+            t3="Body : "+m;
+
         }
-        document.getElementById('eventInfo').innerHTML = text;
+        document.getElementById('eventInfo').innerHTML = t1 +"<br>"+ t2 +"<br>"+ t3;
     });
     network.on("resize", function(params) {
         console.log(params.width, params.height);
