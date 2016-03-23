@@ -111,11 +111,16 @@ function initGraph() {
         if (params.nodes.length === 1) {
             Type=JSON.stringify(nodes.get(params.nodes[0]).blob.type, undefined, 2);
             Sender=JSON.stringify(nodes.get(params.nodes[0]).blob.sender, undefined, 2);
-            m=JSON.stringify(nodes.get(params.nodes[0]).blob.content.body, undefined, 2);
             t1="Event Type : "+Type;
-            t2="Sender : "+Sender;
-            t3="Body : "+m;
-
+            t2="Creator : "+Sender;
+            if (Type==JSON.stringify("m.room.member")) {
+            m=JSON.stringify(nodes.get(params.nodes[0]).blob.content.membership, undefined, 2);
+            t3="Action : "+m;
+            }
+            else if (Type==JSON.stringify("m.room.message")) {
+            m=JSON.stringify(nodes.get(params.nodes[0]).blob.content.body, undefined, 2);
+            t3="Message : "+m;
+            }
         }
         document.getElementById('eventInfo').innerHTML = t1 +"<br>"+ t2 +"<br>"+ t3;
     });
