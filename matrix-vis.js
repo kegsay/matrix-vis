@@ -105,24 +105,20 @@ function initGraph() {
     network = new vis.Network(container, data, options);
     // add event listeners
     network.on('select', function(params) {
-        var Type = " ";
-        var Sender = " ";
-        var m = " ";
         if (params.nodes.length === 1) {
-            Type=JSON.stringify(nodes.get(params.nodes[0]).blob.type, undefined, 2);
-            Sender=JSON.stringify(nodes.get(params.nodes[0]).blob.sender, undefined, 2);
-            t1="Event Type : "+Type;
-            t2="Creator : "+Sender;
-            if (Type==JSON.stringify("m.room.member")) {
-            m=JSON.stringify(nodes.get(params.nodes[0]).blob.content.membership, undefined, 2);
-            t3="Action : "+m;
+            t1="Event Type : "+nodes.get(params.nodes[0]).blob.type;
+            t2="Creator : "+nodes.get(params.nodes[0]).blob.sender;
+            if (nodes.get(params.nodes[0]).blob.type=="m.room.member") {
+                t3="Action : "+
+                nodes.get(params.nodes[0]).blob.content.membership;
             }
-            else if (Type==JSON.stringify("m.room.message")) {
-            m=JSON.stringify(nodes.get(params.nodes[0]).blob.content.body, undefined, 2);
-            t3="Message : "+m;
+            else if (nodes.get(params.nodes[0]).blob.type=="m.room.message") {
+                   t3="Message : "+
+                   nodes.get(params.nodes[0]).blob.content.body;
             }
+            var details_array=[t1, t2, t3];
         }
-        document.getElementById('eventInfo').innerHTML = t1 +"<br>"+ t2 +"<br>"+ t3;
+        document.getElementById('eventInfo').innerHTML = details_array.join('<br>');
     });
     network.on("resize", function(params) {
         console.log(params.width, params.height);
