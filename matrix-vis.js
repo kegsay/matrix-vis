@@ -113,7 +113,7 @@ function initGraph() {
                 t3="Action : "+
                 nodes.get(params.nodes[0]).blob.content.membership;
             }
-            else if (nodes.get(params.nodes[0]).blob.type =="m.room.message") {
+            else if (nodes.get(params.nodes[0]).blob.type == "m.room.message") {
                     t3 = "Message : "+
                    nodes.get(params.nodes[0]).blob.content.body;
             }
