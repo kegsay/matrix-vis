@@ -106,14 +106,15 @@ function initGraph() {
     // add event listeners
     network.on('select', function(params) {
         if (params.nodes.length === 1) {
-            t1="Event Type : "+nodes.get(params.nodes[0]).blob.type;
-            t2="Creator : "+nodes.get(params.nodes[0]).blob.sender;
-            if (nodes.get(params.nodes[0]).blob.type=="m.room.member") {
+            var t1 = "Event Type : "+nodes.get(params.nodes[0]).blob.type;
+            var t2 = " Creator : "+nodes.get(params.nodes[0]).blob.sender;
+            var t3 = " ";
+            if (nodes.get(params.nodes[0]).blob.type == "m.room.member") {
                 t3="Action : "+
                 nodes.get(params.nodes[0]).blob.content.membership;
             }
-            else if (nodes.get(params.nodes[0]).blob.type=="m.room.message") {
-                   t3="Message : "+
+            else if (nodes.get(params.nodes[0]).blob.type =="m.room.message") {
+                    t3 = "Message : "+
                    nodes.get(params.nodes[0]).blob.content.body;
             }
             var details_array=[t1, t2, t3];
