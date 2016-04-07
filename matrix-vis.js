@@ -44,7 +44,7 @@ function initialSync() {
             if (room.room_id === roomId) {
                 // add new events to graph
                 console.log("Adding "+room.messages.chunk.length
-                             +"new events to the graph");
+                             +" new events to the graph");
                 for (var j=0; j<room.messages.chunk.length; ++j) {
                     addEvent(room.messages.chunk[j]);
                 }
@@ -110,14 +110,14 @@ function initGraph() {
             var t2 = " Creator : "+nodes.get(params.nodes[0]).blob.sender;
             var t3 = " ";
             if (nodes.get(params.nodes[0]).blob.type == "m.room.member") {
-                t3="Action : "+
+                t3 = "Action : "+
                 nodes.get(params.nodes[0]).blob.content.membership;
             }
             else if (nodes.get(params.nodes[0]).blob.type == "m.room.message") {
                     t3 = "Message : "+
                    nodes.get(params.nodes[0]).blob.content.body;
             }
-            var details_array=[t1, t2, t3];
+            var details_array = [t1, t2, t3];
         }
         document.getElementById('eventInfo').innerHTML = details_array.join('<br>');
     });

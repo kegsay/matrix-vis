@@ -43,7 +43,7 @@ function initialSync() {
             var room = data.rooms[i];
             if (room.room_id === roomId) {
                 // add new events to graph
-                console.log("Adding " + room.messages.chunk.length + "new events to the graph");
+                console.log("Adding " + room.messages.chunk.length + " new events to the graph");
                 for (var j = 0; j < room.messages.chunk.length; ++j) {
                     addEvent(room.messages.chunk[j]);
                 }
